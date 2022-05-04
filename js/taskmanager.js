@@ -15,7 +15,7 @@ class TaskManager {
       status: 'TODO'
     };
   
-    return this.tasks.push(task);
+    this.tasks.push(task);
   }
 }
 

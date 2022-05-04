@@ -1,9 +1,6 @@
 const taskManager = new TaskManager(0);
-task.addTask();
-console.log(tasks);
 
-
-/* const newTaskForm = document.querySelector('#newTaskForm');
+ const newTaskForm = document.querySelector('#newTaskForm');
 
 newTaskForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -18,4 +15,13 @@ newTaskForm.addEventListener('submit', (event) => {
     const description = newTaskDescription.value;
     const assignedTo = newTaskAssignedTo.value;
     const dueDate = newTaskDueDate.value;
-  */
+
+  taskManager.addTask(name, description, assignedTo, dueDate);  
+  
+  newTaskNameInput.value = '';
+  newTaskDescription.value = '';
+  newTaskAssignedTo.value = '';
+  newTaskDueDate.value = '';
+});
+
+console.log(tasks);
