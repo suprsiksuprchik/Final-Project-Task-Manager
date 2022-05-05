@@ -42,9 +42,9 @@ class TaskManager {
 
       const taskHtml = createTaskHtml(task.name, task.description, task.assignedTo, formattedDate, task.status);
 
-      taskHtml.push(tasksHtmlList);
+      tasksHtmlList.push(taskHtml);
     }
-    const tasksHtml = tasksHtml.join('\n');
+    const tasksHtml = tasksHtmlList.join('\n');
 
     const tasksList = document.querySelector('#tasksList');
     tasksList.innerHTML = tasksHtml;

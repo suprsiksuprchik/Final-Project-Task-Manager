@@ -25,4 +25,4 @@ newTaskForm.addEventListener('submit', (event) => {
   newTaskAssignedTo.value = '';
   newTaskDueDate.value = '';
 });
-//changes for a merger please delete this after pull request.
+
