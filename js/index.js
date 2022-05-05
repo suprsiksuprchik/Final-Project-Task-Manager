@@ -26,4 +26,3 @@ newTaskForm.addEventListener('submit', (event) => {
   newTaskDueDate.value = '';
 });
 
-console.log(tasks);
