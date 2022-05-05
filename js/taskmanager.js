@@ -1,5 +1,5 @@
-const createTaskHtml = (name, description, assignedTo, dueDate, status) => `
-  <li class="list-group-item">
+const createTaskHtml = (name, description, assignedTo, dueDate, status, id) => `
+  <li class="list-group-item" data-task-id=${id}>
         <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
             <h5>${name}</h5>
             <span class="badge badge-danger">${status}                </span>
@@ -9,6 +9,9 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status) => `
                 <small>${dueDate}</small>
           </div>
           <p>${description}</p>
+          <button class="done-button">
+            Mark As Done
+          </button>
   </li>`;
                                                           
 
@@ -31,6 +34,20 @@ class TaskManager {
     this.tasks.push(task);
   }
 
+  getTaskById(taskId) {
+      let foundTask;
+  
+      for (let i = 0; i < this.tasks.length; i++) {
+        const task = this.task[i];
+  
+        if (task.id === taskId) {
+          foundTask = task;
+        }
+      }
+  
+      return foundTask;
+    }
+  
   render() {
     const tasksHtmlList = [];
 
@@ -40,7 +57,7 @@ class TaskManager {
       const date = new Date(task.dueDate);
       const formattedDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
 
-      const taskHtml = createTaskHtml(task.name, task.description, task.assignedTo, formattedDate, task.status);
+      const taskHtml = createTaskHtml(task.id, task.name, task.description, task.assignedTo, formattedDate, task.status);
 
       tasksHtmlList.push(taskHtml);
     }
@@ -48,7 +65,7 @@ class TaskManager {
 
     const tasksList = document.querySelector('#tasksList');
     tasksList.innerHTML = tasksHtml;
-  }
-}
+  } 
+};
 
 
