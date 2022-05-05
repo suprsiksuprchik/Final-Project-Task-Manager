@@ -34,7 +34,7 @@ class TaskManager {
   render() {
     const tasksHtmlList = [];
 
-    for(let i=0; i < this.tasks.length; i++) {
+    for(let i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
 
       const date = new Date(task.dueDate);
