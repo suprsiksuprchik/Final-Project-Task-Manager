@@ -17,6 +17,8 @@ newTaskForm.addEventListener('submit', (event) => {
     const dueDate = newTaskDueDate.value;
 
   taskManager.addTask(name, description, assignedTo, dueDate);  
+
+  taskManager.render();
   
   newTaskNameInput.value = '';
   newTaskDescription.value = '';
@@ -24,4 +26,3 @@ newTaskForm.addEventListener('submit', (event) => {
   newTaskDueDate.value = '';
 });
 
-console.log(tasks);
