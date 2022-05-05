@@ -17,11 +17,12 @@ newTaskForm.addEventListener('submit', (event) => {
     const dueDate = newTaskDueDate.value;
 
   taskManager.addTask(name, description, assignedTo, dueDate);  
+
+  taskManager.render();
   
   newTaskNameInput.value = '';
   newTaskDescription.value = '';
   newTaskAssignedTo.value = '';
   newTaskDueDate.value = '';
 });
-
-console.log(tasks);
+//changes for a merger please delete this after pull request.
