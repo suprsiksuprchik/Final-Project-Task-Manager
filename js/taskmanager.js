@@ -2,17 +2,18 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
   <li class="list-group-item" data-task-id=${id}>
         <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
             <h5>${name}</h5>
-            <span class="badge badge-danger">${status}</span>
+            <span class="badge ${status === 'TODO' ? 'badge-danger' : 'badge-success'}">${status}</span>
             </div>
           <div class="d-flex w-100 mt-2 justify-content-between">
-                <small>${assignedTo}</small>
-                <small>${dueDate}</small>
+                <small>Assigned To:${assignedTo}</small>
+                <small>Due: ${dueDate}</small>
           </div>
           <p>${description}</p>
           <div class="d-flex w-100 justify-content-end">
-            <button class="done-button">
+            <button class="btn btn-outline-success done-button ${status === 'TODO' ? 'visible' : 'invisible'}">
               Mark As Done
             </button>
+            <button class="btn btn-danger delete-button">Delete</button>
   </li>`;
                                                           
 
@@ -33,6 +34,23 @@ class TaskManager {
     };
   
     this.tasks.push(task);
+  }
+
+  deleteTask(taskId) {
+    
+    const newTasks = [];
+
+    for (let i = 0; i < this.tasks.length; i++) {
+      
+      const task = this.tasks[i];
+
+      if (task.id !== taskId) {
+
+        newTasks.push(task);
+      }  
+
+      this.tasks = newTasks;
+    }
   }
 
   getTaskById(taskId) {
@@ -68,6 +86,36 @@ class TaskManager {
     const tasksList = document.querySelector('#tasksList');
     tasksList.innerHTML = tasksHtml;
   } 
+  
+  save() {
+
+    const tasksJson = JSON.stringify(this.tasks);
+
+    localStorage.setItem('tasks', tasksJson);
+
+    const currentId = String(this.currentId);
+
+    localStorage.setItem('currentId', currentId);
+  }
+
+  load() {
+
+    if (localStorage.getItem('tasks')) {
+      
+      const tasksJson = localStorage.getItem('tasks');
+
+      this.tasks = JSON.parse(tasksJson);
+    }
+    
+    if (localStorage.getItem('currentId')) {
+      
+      const currentId = localStorage.getItem('currentId');
+
+      this.currentId = Number(currentId);
+    }
+  }
 }
 
+
+  
 

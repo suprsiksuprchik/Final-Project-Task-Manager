@@ -1,5 +1,9 @@
 const taskManager = new TaskManager(0);
 
+taskManager.load();
+
+taskManager.render();
+
  const newTaskForm = document.querySelector('#newTaskForm');
 
 
@@ -41,5 +45,17 @@ tasksList.addEventListener('click', (event) => {
 
     taskManager.render();
 
+  }
+
+  if (event.target.classList.contains('delete-button')) {
+    const parentTask = event.target.parentElement.parentElement;
+
+    const taskId = Number(parentTask.dataset.taskId);
+
+    taskManager.deleteTask(taskId);
+
+    taskManager.save();
+
+    taskManager.render();
   }
 });
