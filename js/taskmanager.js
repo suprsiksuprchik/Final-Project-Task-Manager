@@ -2,7 +2,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
   <li class="list-group-item" data-task-id=${id}>
         <div id="d-flex w-100 mt-2 justify-content-between align-items-center" class=form>
             <h5>${name}</h5>
-            <span class="badge ${status === 'TODO' ? 'badge-danger' : 'badge-success'}">${status}</span>
+            <span class="badge ${status === 'TODO' ? 'badge-secondary' : 'badge-success'}">${status}</span>
             </div>
           <div class="d-flex w-100 mt-2 justify-content-between">
                 <small>Assigned To:${assignedTo}</small>
@@ -13,7 +13,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
             <button id=doneCard class="btn btn-outline-success done-button ${status === 'TODO' ? 'visible' : 'invisible'}">
               Mark As Done
             </button>
-            <button id=deleteCard class="btn btn-danger delete-button">Delete</button>
+            <button id=deleteCard class="btn btn-secondary delete-button">Delete</button>
   </li>`;
                                                           
 
@@ -74,7 +74,7 @@ class TaskManager {
       const task = this.tasks[i];
 
       const date = new Date(task.dueDate);
-      const formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+      const formattedDate = date.getDate() + '/' + (date.getMonth()) + '/' + date.getFullYear();
 
       const taskHtml = createTaskHtml(task.id, task.name, task.description, task.assignedTo, formattedDate, task.status);
 
