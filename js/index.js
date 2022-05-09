@@ -21,7 +21,9 @@ newTaskForm.addEventListener('submit', (event) => {
     const assignedTo = newTaskAssignedTo.value;
     const dueDate = newTaskDueDate.value;
 
-  taskManager.addTask(name, description, assignedTo, dueDate);  
+  taskManager.addTask(name, description, assignedTo, dueDate);
+
+  taskManager.save();
 
   taskManager.render();
   
@@ -42,6 +44,8 @@ tasksList.addEventListener('click', (event) => {
     const task = taskManager.getTaskById(taskId);
 
     task.status = 'DONE';
+
+    taskManager.save();
 
     taskManager.render();
 

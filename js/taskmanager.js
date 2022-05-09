@@ -14,7 +14,9 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
               Mark As Done
             </button>
             <button id=deleteCard class="btn btn-secondary delete-button">Delete</button>
-  </li>`;
+          </div>
+  </li>
+  <br>`;
                                                           
 
 class TaskManager {
@@ -47,10 +49,10 @@ class TaskManager {
       if (task.id !== taskId) {
 
         newTasks.push(task);
-      }  
-
-      this.tasks = newTasks;
+      }   
     }
+    
+    this.tasks = newTasks;
   }
 
   getTaskById(taskId) {
