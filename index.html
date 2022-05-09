@@ -9,7 +9,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+<!--  fonts      -->
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,400&family=Space+Mono&display=swap" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
     <title>Task List</title>
 </head>
 
@@ -17,31 +20,31 @@
     <div class="container">
         <h1 class="my-5">Task List</h1>
         <div class="row">
-            <div class="col">
-                <h2>New Task</h2>
+            <div class="col formBackground">
+                <h2 id="formTitle1">New Task</h2>
                 <form id="newTaskForm">
                   <div class="form-group">
-                     <label for="newTaskNameInput">Name</label>
+                     <label for="newTaskNameInput" class=form>Name</label>
                         <input type="text" class="form-control" id="newTaskNameInput" required>
                   </div>
                     <div class="form-group">
-                        <label for="newTaskDescription">Description</label>
+                        <label for="newTaskDescription" class=form>Description</label>
                         <textarea type="text" class="form-control" id="newTaskDescription" required></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group col">
-                            <label for="newTaskAssignedTo">Assigned To</label>
+                            <label for="newTaskAssignedTo" class=form>Assigned To</label>
                             <input type="text" class="form-control" id="newTaskAssignedTo" required>
                         </div>
                         <div class="form-group col">
-                            <label for="newTaskDueDate">Due Date</label>
+                            <label for="newTaskDueDate" class="form">Due Date</label>
                             <input type="date" class="form-control" id="newTaskDueDate" required>
                         </div>
                     </div>
                     <div id="alertMessage" style="display: none" class="alert alert-danger" role="alert">
                     Error message    
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Add Task</button>
+                    <button type="submit" class="btn btn-info btn-block" style='background-color: rgb(86, 150, 159)'id="addButton">Add Task</button>
                 </form>
             </div>
         </div>
@@ -49,7 +52,7 @@
       
       <div class="row">
         <div class="col">
-            <h2>Tasks</h2>
+            <h2 id=cardTitle>Tasks</h2>
             <ul class="list-group" id="tasksList">
             </ul>
         </div>
